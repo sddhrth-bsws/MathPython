@@ -15,7 +15,7 @@ ALPHA = 0.01
 BETA = 0.05
 SR = 150
 p = 50
-ETA = 5-
+ETA = 5
 IP = 0.07
 IC = 0.5
 L = 0.5
@@ -76,7 +76,7 @@ def constraint5(variables):
     return T
 
 # Initial guess for the parameters
-initial_guess = [7,10,55]
+initial_guess = [1,5,15]
 #initial_guess = np.zeros(3)
 
 bounds = [(None, None), (None, None), (None, None)]
@@ -89,7 +89,7 @@ constraints = [{'type': 'ineq', 'fun': constraint1},
 
 # Call the optimization function
 #result = minimize(cost_function, initial_guess, method='BFGS')  # You can choose a different method
-result = minimize(cost_function, initial_guess, bounds=bounds, constraints=constraints, method='COBYLA')
+result = minimize(cost_function, initial_guess, bounds=bounds, constraints=constraints, method='SLSQP')
 
 
 # Extract the optimized parameters
